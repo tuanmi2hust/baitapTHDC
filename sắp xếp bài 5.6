@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+	char s[1000], t[1000];
+	fgets(s, 1000, stdin);
+	
+	fgets(t, 1000, stdin);
+	int count1 = 0;
+	char a[1000], b[1000];
+	
+	for( int i = 'a'; i <= 'z'; i ++ ){
+		for ( int j = 0; j < strlen(s); j++){
+			if(i == s[j]){
+//				 printf(" %c", i);
+				 a[count1] = i; count1 ++; 
+				
+			}	
+		}
+	}
+// printf("\n");	
+	int count2 = 0;
+	for( int i = 'a'; i <= 'z'; i ++ ){
+		for ( int j = 0; j < strlen(t); j++){
+			if(i == t[j]){
+//				printf(" %c", i);
+				a[count1] = i; count1++;
+			}
+		}
+	}
+	
+// 	printf("\n");
+	for ( int i = 'a'; i <= 'z'; i++ ){
+		for (int j = 0; j <= count1 ; j++){
+			if ( i == a[j] ){
+				b[count2] = i; count2++;
+			}
+		}
+	}
+//	for ( int i = 0; i <= count2; i++){
+//		printf(" %c", b[i]);
+//	}
+	int count3 = 0;
+	char c[1000];
+	
+	for ( int i = 0; i <= count2; i++){
+		if(b[i] == b[i - 1 ]){
+			continue;	
+		} 
+		printf("%c", b[i]);
+	}
+	printf("\n");
+	printf("\n");
+	for( int i = 'a'; i <= 'z'; i++){
+		for ( int j = 0; j <= count2; j++){
+				if(i == b[j]){
+					count3++;
+				}
+				
+		}
+		if(count3 == 0){
+		    continue;
+		}
+		printf("%d\n", count3); count3 = 0;
+	
+	}
+	
+	
+	
+	
+	return 0;
+}
+
